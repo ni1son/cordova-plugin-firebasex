@@ -56,7 +56,13 @@ Utilities.writeJsonToXmlFile = function(jsonObj, filepath, parseOpts){
  * Used to get the name of the application as defined in the config.xml.
  */
 Utilities.getAppName = function(){
-    return Utilities.parseConfigXml().widget.name._text.toString().trim();
+    console.log(Utilities.parseConfigXml())
+    try {
+        return Utilities.parseConfigXml().widget.name._text.toString().trim();
+    } catch (e) {
+        console.error(e)
+        return ''
+    }
 };
 
 /**
